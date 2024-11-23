@@ -14,7 +14,7 @@ app.use(bodyparser.urlencoded({extended:false}))
 app.use(bodyparser.json())
 
 
-mongoose.connect("mongodb+srv://sai:sai123456789@atlascluster.ym1yuin.mongodb.net/lms?retryWrites=true&w=majority&appName=AtlasCluster")
+mongoose.connect("mongodb+srv://sai:sai987654321@atlascluster.ym1yuin.mongodb.net/lms?retryWrites=true&w=majority&appName=AtlasCluster")
 
 
 var adminManagerAuthenticate = async (req,res,next)=>{
