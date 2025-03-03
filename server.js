@@ -14,7 +14,7 @@ app.use(bodyparser.urlencoded({extended:false}))
 app.use(bodyparser.json())
 
 
-mongoose.connect("mongodb+srv://sai:sai987654321@atlascluster.ym1yuin.mongodb.net/lms?retryWrites=true&w=majority&appName=AtlasCluster")
+mongoose.connect("mongodb+srv://srikanth:9705@cluster0.kmbqi.mongodb.net/loanproject?retryWrites=true&w=majority&appName=Cluster0")
 
 
 var adminManagerAuthenticate = async (req,res,next)=>{
@@ -167,7 +167,7 @@ app.get("/loandetails/:id",adminManagerAuthenticate,async(req,res)=>{
         customerMobile,
         customerName
        }
-       res.send(obj)
+       res.send(obj)  
     } catch (error) {
        res.json({msg:"err in finding loan details"})
     }
@@ -306,9 +306,6 @@ app.post("/addintrestrates",adminauthenticate,async(req,res)=>{
         res.json({msg:"err in adding intrestrates"})
     }
 })
-
-
-
 app.put("/updateintrestrate/:id",adminauthenticate,async(req,res)=>{
     try {
         var intrestrate = req.body
@@ -318,8 +315,6 @@ app.put("/updateintrestrate/:id",adminauthenticate,async(req,res)=>{
         res.json({msg:" error in updating intrestrate"})
     }
 })
-
-
 app.get('/addmanager',adminauthenticate,async(req,res)=>{
     try {
         const users = await User.find()
@@ -343,7 +338,6 @@ app.put("/approvemanager/:id",adminauthenticate,async(req,res)=>{
     }
 })
 
-
 app.put("/removemanager/:id",adminauthenticate,async(req,res)=>{
     try {
         const removemanager = await User.findOneAndUpdate({_id:req.params.id},{ $set: { role: "user" } },{ new: true })
@@ -352,9 +346,9 @@ app.put("/removemanager/:id",adminauthenticate,async(req,res)=>{
         res.json({ msg: "Error in removing manager" });
     }
 })
+ 
 
 
-
-app.listen(7777,()=>{
-    console.log('server is running on port 7777')
+app.listen(8888,()=>{
+    console.log('server is running on port 8888')
 })
