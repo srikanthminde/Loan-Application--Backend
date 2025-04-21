@@ -14,8 +14,10 @@ app.use(bodyparser.urlencoded({extended:false}))
 app.use(bodyparser.json())
 
 
-mongoose.connect("mongodb+srv://srikanth:9705@cluster0.kmbqi.mongodb.net/loanproject?retryWrites=true&w=majority&appName=Cluster0")
-
+// mongoose.connect("mongodb+srv://srikanth:9705@cluster0.kmbqi.mongodb.net/loanproject?retryWrites=true&w=majority&appName=Cluster0")
+mongoose.connect("mongodb+srv://srikanth:9705@cluster0.kmbqi.mongodb.net/loanproject?retryWrites=true&w=majority&appName=Cluster0").then(function(){
+    console.log("connected")
+})
 
 var adminManagerAuthenticate = async (req,res,next)=>{
     try {
@@ -105,6 +107,7 @@ app.post("/signup",async(req,res)=>{
 
 
 app.post("/login",async(req,res)=>{
+    console.log(req.body)
    try {
      var user = await User.findOne({username:req.body.username,password:req.body.password})
        var token = jwt.sign({...user}, 'secretkey')
@@ -114,6 +117,8 @@ app.post("/login",async(req,res)=>{
        res.json({msg:"login failed"})
    }
 })
+
+
 
 
 
