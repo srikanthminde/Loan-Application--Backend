@@ -3,15 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-<<<<<<< HEAD
+
   
   "scripts": 
   {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-=======
->>>>>>> 416138c8e1ae42a42fc4dcaaebfc158bbd5f98fc
   "author": "",
   "license": "ISC",
   "scripts": {
